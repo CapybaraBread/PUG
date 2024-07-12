@@ -1,0 +1,26 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Сайт на Pug
+    link(rel="stylesheet", href="../css/style.css")
+  body 
+    - let games = [{title: "Minecraft", releaseDate: "18 ноября 2011года", image: "../img/Main.jpeg"},{title: "Genshin impact", releaseDate: "28 сентября 2020г.", image: "../img/Геншин.jpeg"},{title: "Zenles Zone  Zero", releaseDate: "4 июля 2024г", image: "../img/ZZZ.webp"},{title: "Among Us", releaseDate: "15 июня 2018г", image: "../img/Among_Us.png"},{title: "Honkai Star Rail", releaseDate: "26 апреля 2023г", image:"../img/HSR.jpeg"},{title: "League of Legends", releaseDate: "27 октября 2009г", image: "../img/LoL.jpeg"},{title: "GTA", releaseDate: "17 сентября 2013г", image: "../img/GTA.png"},]
+    .container
+      h1.title Любимые игры моего попугая
+      p.container_text 
+            | На ПК существует множество увлекательных и популярных игр, которые могут стать любимыми для многих геймеров. Первой игрой, которая
+            | часто становится любимой, является популярная многопользовательская игра в жанре "шутера" с элементами стратегии. Но не менее
+            | популярными являются игры в жанре "RPG" (ролевые игры), где игроку предоставляется уникальная возможность окунуться в
+            | фантастическую вселенную. Также не стоит забывать об играх с открытым миром, где игроку предоставляется свобода действий и
+            | исследования. В последнее время стали популярны игры-головоломки, требующие логического мышления и находчивости от игрока.
+      ul.grid 
+        each game in games 
+          li.grid__item
+            article.card
+              a.card__image
+                img.grid_image(src=game.image, alt="image")
+              h2.card__title
+                a=game.title
+              span.card__date=game.releaseDate
